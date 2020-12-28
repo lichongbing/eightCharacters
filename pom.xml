@@ -6,7 +6,7 @@
 
     <groupId>com.lichongbing</groupId>
     <artifactId>EightCharacters</artifactId>
-    <version>0.0.2</version>
+    <version>1.0.0</version>
     <url>https://github.com/lichongbing/eightCharacters</url>
     <name>EightCharacters</name>
     <description>Eight characters's row plate tools</description>

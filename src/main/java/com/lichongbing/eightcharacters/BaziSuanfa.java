@@ -119,7 +119,7 @@ static String runyue []={"润五月小","润三月小","润八月小","润五月
         if (twohour != 0) return twohour;
         return twohour;
     }
-    public static String  getEightCharacters(String birtdatFormate){
+    public  String  getEightCharacters(String birtdatFormate){
 
     /*
     *
@@ -176,55 +176,55 @@ static String runyue []={"润五月小","润三月小","润八月小","润五月
 
 
     }
-    public static void main(String[] args) {
-        String scan="1997/9/1 12:12:22";
-        long time = new Date(scan).getTime()+28800000;
-        long showtime = new Date(scan).getTime();
-        SimpleDateFormat sdfs = new SimpleDateFormat("yyyyMMddHHmmss");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        System.out.println("输入的出生日期：" + sdfs.format(showtime));
-        int idate=Integer.parseInt(sdf.format(time));
-        /*
-        日柱算法
-         */
-        double days =Math.ceil(getDistanceDays(0,time/1000));
-//        System.out.println(b);
-        int c = (int) ((days+17) % 60);
-//        System.out.println(c);
-        String rizhu=liushijiazi[c];
-//        System.out.println(rizhu);
-//        int l=jie.length;
-//        System.out.println(l);
-//        int positon = Arrays.binarySearch(jie, 19700105);
-//        System.out.println(positon);
-        /*
-        时柱算法
-         */
-        long s = getDistenceTwoHous(0, time / 1000);
-        int ts= (int) Math.ceil((s+25)%60);
-        String shizhu=liushijiazi[ts];
-//        System.out.println(shizhu);
-        /*
-        月柱算法
-         */
-        int jiaziindex=(test(idate)+13)%60;
-        int yuezhuindex=jiaziindex;
-//        System.out.println(jiaziindex);
-        String yuezhu=liushijiazi[yuezhuindex];
-//        System.out.println(yuezhu);
-        /*
-        年柱算法
-         */
-      double year_num =Math.floor((test(idate)-1)/12);
-      //  double year_num = (Math.floor(getDistanceDays(0,time/1000))-34)/365.25;
-//        System.out.println(year_num);
-        int nianzhu_index= (int) ((year_num+46)%60);
-        String nianzhu =liushijiazi[nianzhu_index];
-//        System.out.println(nianzhu);
-        System.out.println("输出的年月日天干地支：" +nianzhu+yuezhu+rizhu+shizhu);
-        System.out.println(nianzhu.substring(0,1));
-        System.out.println(nianzhu.substring(1,2));
-        String eightCharacters = getEightCharacters("1997/9/1 12:12:22");
-        System.out.println(eightCharacters);
-    }
+//    public static void main(String[] args) {
+//        String scan="1997/9/1 12:12:22";
+//        long time = new Date(scan).getTime()+28800000;
+//        long showtime = new Date(scan).getTime();
+//        SimpleDateFormat sdfs = new SimpleDateFormat("yyyyMMddHHmmss");
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+//        System.out.println("输入的出生日期：" + sdfs.format(showtime));
+//        int idate=Integer.parseInt(sdf.format(time));
+//        /*
+//        日柱算法
+//         */
+//        double days =Math.ceil(getDistanceDays(0,time/1000));
+////        System.out.println(b);
+//        int c = (int) ((days+17) % 60);
+////        System.out.println(c);
+//        String rizhu=liushijiazi[c];
+////        System.out.println(rizhu);
+////        int l=jie.length;
+////        System.out.println(l);
+////        int positon = Arrays.binarySearch(jie, 19700105);
+////        System.out.println(positon);
+//        /*
+//        时柱算法
+//         */
+//        long s = getDistenceTwoHous(0, time / 1000);
+//        int ts= (int) Math.ceil((s+25)%60);
+//        String shizhu=liushijiazi[ts];
+////        System.out.println(shizhu);
+//        /*
+//        月柱算法
+//         */
+//        int jiaziindex=(test(idate)+13)%60;
+//        int yuezhuindex=jiaziindex;
+////        System.out.println(jiaziindex);
+//        String yuezhu=liushijiazi[yuezhuindex];
+////        System.out.println(yuezhu);
+//        /*
+//        年柱算法
+//         */
+//      double year_num =Math.floor((test(idate)-1)/12);
+//      //  double year_num = (Math.floor(getDistanceDays(0,time/1000))-34)/365.25;
+////        System.out.println(year_num);
+//        int nianzhu_index= (int) ((year_num+46)%60);
+//        String nianzhu =liushijiazi[nianzhu_index];
+////        System.out.println(nianzhu);
+//        System.out.println("输出的年月日天干地支：" +nianzhu+yuezhu+rizhu+shizhu);
+//        System.out.println(nianzhu.substring(0,1));
+//        System.out.println(nianzhu.substring(1,2));
+//        String eightCharacters = getEightCharacters("1997/9/1 12:12:22");
+//        System.out.println(eightCharacters);
+//    }
 }

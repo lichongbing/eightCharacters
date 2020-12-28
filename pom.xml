@@ -4,9 +4,105 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>com.lichongbing</groupId>
     <artifactId>EightCharacters</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.2</version>
+    <url>https://github.com/lichongbing/eightCharacters</url>
+    <name>EightCharacters</name>
+    <description>Eight characters's row plate tools</description>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <name>lichongbing</name>
+            <email>873610008@qq.com</email>
+        </developer>
+    </developers>
+    <scm>
+        <connection>https://github.com/lichongbing/eightCharacters.git</connection>
+        <developerConnection>https://github.com/lichongbing/eightCharacters.git</developerConnection>
+        <url>https://github.com/lichongbing/eightCharacters</url>
+    </scm>
+    <profiles>
+    <profile>
+    <!-- 这个id就是打包时的 -P 参数 -->
+    <id>release</id>
+    <build>
+        <plugins>
+            <!-- Source插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Javadoc插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                <source>8</source>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <!-- -Xdoclint:none 是为了避免生成apidoc的时候检查过于严格而报错-->
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- GPG加密插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+        <!-- snapshotRepository与repository的id应与setting.xml中添加的server的id一致 -->
+        <distributionManagement>
+            <snapshotRepository>
+                <id>sonatype-lichongbing</id>
+                <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            </snapshotRepository>
+            <repository>
+                <id>sonatype-lichongbing</id>
+                <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            </repository>
+        </distributionManagement>
+    </profile>
+    </profiles>
+
 
 
 </project>

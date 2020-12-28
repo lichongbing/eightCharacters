@@ -9,5 +9,6 @@
         <module name="EightCharacters" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="7" />
   </component>
 </project>
